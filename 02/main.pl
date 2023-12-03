@@ -1,6 +1,5 @@
-% :- use_module(library(dcg_tools)).
-:- use_module('../../dcg_tools/prolog/dcg_tools').
-:- use_module('../../medikit/prolog/medikit').
+:- use_module(library(dcg_tools)).
+:- use_module(library(medikit)).
 :- use_module(library(chr)).
 
 
