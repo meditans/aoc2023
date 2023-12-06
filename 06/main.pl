@@ -12,9 +12,10 @@ input(K1-K2) --> times(Times), nl, dists(Dists), nl,
                    atomic_list_concat(Dists, BigDist0), atom_number(BigDist0, BigDist) }.
 
 win(MaxTime, Record, NWays) :-
-    chain([0, PressTime, MaxTime], #=<), Distance #> Record,
-    MaxTime #= PressTime + RaceTime, Distance #= RaceTime * PressTime,
-    fd_dom(PressTime, Inf..Sup), NWays #= Sup - Inf + 1.
+    Charge in 0..MaxTime,
+    Distance #= Charge * (MaxTime - Charge),
+    Distance #> Record,
+    fd_size(Charge, NWays).
 
 solution(Part1, Part2) :-
     once(phrase_from_file(input(X), 'input1.data')),
